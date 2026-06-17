@@ -1,6 +1,36 @@
-body{
-    background:#070b14;
-    color:white;
-    font-family:Arial;
-    text-align:center;
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: radial-gradient(circle at top, #0b1220, #05070f);
+  color: #e5e7eb;
+}#periodic-table {
+  display: grid;
+  grid-template-columns: repeat(18, 1fr);
+  gap: 6px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}.element {
+  border-radius: 8px;
+  padding: 6px;
+  font-size: 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.2s;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
 }
+
+.element:hover {
+  transform: translateY(-3px) scale(1.08);
+  box-shadow: 0 10px 20px rgba(0,255,255,0.2);
+}.alkali-metal { background: rgba(255, 80, 80, 0.25); }
+.alkaline-earth { background: rgba(255, 160, 80, 0.25); }
+.transition-metal { background: rgba(80, 160, 255, 0.25); }
+.post-transition-metal { background: rgba(120, 140, 200, 0.25); }
+.metalloid { background: rgba(80, 220, 160, 0.25); }
+.nonmetal { background: rgba(80, 255, 140, 0.25); }
+.halogen { background: rgba(255, 220, 80, 0.25); }
+.noble-gas { background: rgba(180, 120, 255, 0.25); }
+.lanthanide { background: rgba(255, 120, 200, 0.25); }
+.actinide { background: rgba(255, 80, 160, 0.25); }
