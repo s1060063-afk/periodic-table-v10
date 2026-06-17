@@ -70,3 +70,23 @@ h1 {
   float: right;
   cursor: pointer;
 }
+.valence {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.valence span {
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+}
+
+/* 不同價數顏色 */
+.v-pos { background: #22c55e; }   /* 正價 */
+.v-neg { background: #ef4444; }   /* 負價 */
+.v-zero { background: #64748b; }  /* 0 */
+.v-multi { background: #a855f7; } /* 多變 */
