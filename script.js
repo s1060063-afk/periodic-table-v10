@@ -1,101 +1,73 @@
 const container = document.getElementById("periodic-table");
+const searchInput = document.getElementById("search");
 
-/* =========================
-   1️⃣ 建立週期表
-========================= */
-function createTable() {
-  elements.forEach(el => {
+/* 🧱 建立週期表 */
+function createTable(data = elements) {
+  container.innerHTML = "";
+
+  data.forEach(el => {
     const div = document.createElement("div");
-    div.classList.add("element");
-
-    // 加分類 class
-    if (el.category) {
-      div.classList.add(el.category);
-    }
+    div.className = "element";
 
     div.innerHTML = `
-      <div>${el.number}</div>
-      <div><b>${el.symbol}</b></div>
+      <div class="number">${el.number}</div>
+      <div class="symbol">${el.symbol}</div>
+      <div class="name">${el.name}</div>
     `;
 
-    // 點擊 → 開彈窗
     div.onclick = () => openModal(el);
-
     container.appendChild(div);
   });
 }
 
-/* =========================
-   2️⃣ App UI 彈窗
-========================= */
+/* 📦 彈窗 */
 function openModal(el) {
   const modal = document.getElementById("modal");
   const content = document.getElementById("modal-content");
 
   content.innerHTML = `
     <h2>${el.name} (${el.symbol})</h2>
-
     <p>🧪 原子序：${el.number}</p>
-    <p>⚖️ 平均原子量：${el.atomicMass}</p>
-    <p>🏷️ 分類：${el.category}</p>
+    <p>⚖️ 原子量：${el.atomicMass}</p>
+    <p>🏷️ 類別：${el.category}</p>
 
     <hr>
 
-    <h3>⚡ 價數</h3>
-    <p>${el.valenceRange ? el.valenceRange.join(", ") : "未知"}</p>
-
-    <h3>🧫 同位素</h3>
-    <p>
-      ${el.isotopes
-        ? el.isotopes.map(i =>
-            typeof i === "string" ? i : i.name
-          ).join(", ")
-        : "無資料"}
-    </p>
-
-    <h3>🧪 化合物</h3>
-    <p>${el.compounds ? el.compounds.join(", ") : "無資料"}</p>
+    <p>⚡ 價數：${el.valenceRange.join(", ")}</p>
+    <p>🧫 同位素：${el.isotopes.join(", ")}</p>
+    <p>🧪 化合物：${el.compounds.join(", ")}</p>
 
     <h3>🧠 性質</h3>
     <ul>
-      ${
-        el.properties
-          ? el.properties.map(p => `<li>${p}</li>`).join("")
-          : "<li>無資料</li>"
-      }
+      ${el.properties.map(p => `<li>${p}</li>`).join("")}
     </ul>
   `;
 
   modal.classList.remove("hidden");
 }
 
-/* =========================
-   3️⃣ 關閉彈窗
-========================= */
+/* ❌ 關閉 */
 function closeModal() {
   document.getElementById("modal").classList.add("hidden");
 }
 
-/* =========================
-   4️⃣ 搜尋功能（可選）
-========================= */
-function searchElement(query) {
-  query = query.toLowerCase();
+/* 🔍 搜尋 */
+searchInput.addEventListener("input", e => {
+  const q = e.target.value.toLowerCase();
 
-  const found = elements.find(el =>
-    el.name.toLowerCase() === query ||
-    el.symbol.toLowerCase() === query ||
-    el.number == query
+  const filtered = elements.filter(el =>
+    el.name.toLowerCase().includes(q) ||
+    el.symbol.toLowerCase().includes(q)
   );
 
-  if (found) {
-    openModal(found);
-  } else {
-    alert("找不到這個元素");
-  }
+  createTable(filtered);
+});
+
+/* 🔄 重置 */
+function resetTable() {
+  searchInput.value = "";
+  createTable(elements);
 }
 
-/* =========================
-   5️⃣ 啟動
-========================= */
-createTable();
+/* 🚀 啟動 */
+createTable(elements);
