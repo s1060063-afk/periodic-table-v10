@@ -1,92 +1,175 @@
+
+/* =========================
+   🌐 全局設定
+========================= */
 body {
-  font-family: Arial;
+  font-family: Arial, "Noto Sans TC", sans-serif;
+  margin: 0;
   background: #0f172a;
   color: white;
   text-align: center;
 }
 
+/* =========================
+   🧪 標題
+========================= */
 h1 {
-  margin: 20px;
+  margin-top: 20px;
+  font-size: 28px;
 }
 
-/* 週期表 */
+/* =========================
+   🔍 搜尋區
+========================= */
+.search-box {
+  margin: 15px;
+}
+
+.search-box input {
+  padding: 8px;
+  width: 220px;
+  border-radius: 6px;
+  border: none;
+}
+
+.search-box button {
+  padding: 8px 12px;
+  margin-left: 5px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #38bdf8;
+  color: black;
+}
+
+/* =========================
+   ⚛ 週期表 Grid
+========================= */
 #periodic-table {
   display: grid;
-  grid-template-columns: repeat(18, 1fr);
-  gap: 5px;
-  padding: 10px;
+  grid-template-columns: repeat(18, 55px);
+  gap: 6px;
+  justify-content: center;
+  padding: 20px;
 }
 
-/* 元素格 */
+/* =========================
+   🧱 元素方塊
+========================= */
 .element {
-  background: #1e293b;
+  width: 55px;
+  height: 55px;
   border-radius: 6px;
-  padding: 6px;
+  background: #1e293b;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 10px;
   cursor: pointer;
   transition: 0.2s;
-  font-size: 12px;
 }
 
 .element:hover {
-  transform: scale(1.1);
+  transform: scale(1.15);
   background: #334155;
 }
 
-/* 類別顏色 */
-.nonmetal { background: #16a34a; }
-.noble-gas { background: #2563eb; }
-.alkali-metal { background: #dc2626; }
-.alkaline-earth-metal { background: #ea580c; }
-.transition-metal { background: #9333ea; }
-.metalloid { background: #ca8a04; }
-.halogen { background: #0891b2; }
-.post-transition-metal { background: #64748b; }
-.lanthanide { background: #db2777; }
-.actinide { background: #be123c; }
+/* =========================
+   🎨 元素分類顏色
+========================= */
 
-/* 彈窗 */
+/* 鹼金屬 */
+.alkali-metal {
+  background: #ef4444;
+}
+
+/* 鹼土金屬 */
+.alkaline-earth-metal {
+  background: #f97316;
+}
+
+/* 過渡金屬 */
+.transition-metal {
+  background: #eab308;
+}
+
+/* 後過渡金屬 */
+.post-transition-metal {
+  background: #22c55e;
+}
+
+/* 半金屬 */
+.metalloid {
+  background: #06b6d4;
+}
+
+/* 非金屬 */
+.nonmetal {
+  background: #3b82f6;
+}
+
+/* 鹵素 */
+.halogen {
+  background: #a855f7;
+}
+
+/* 稀有氣體 */
+.noble-gas {
+  background: #6366f1;
+}
+
+/* 鑭系 */
+.lanthanide {
+  background: #14b8a6;
+}
+
+/* 錒系 */
+.actinide {
+  background: #f43f5e;
+}
+
+/* 未知 */
+.unknown {
+  background: #64748b;
+}
+
+/* =========================
+   🧬 彈窗 Modal
+========================= */
 #modal {
   position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.8);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+/* 隱藏 */
 .hidden {
   display: none;
 }
 
-.modal-box {
-  background: white;
-  color: black;
+/* 彈窗內容 */
+.modal-content {
+  background: #0f172a;
   padding: 20px;
-  border-radius: 10px;
-  width: 300px;
+  border-radius: 12px;
+  width: 320px;
+  text-align: left;
+  border: 1px solid #334155;
 }
 
+/* 關閉按鈕 */
 .close-btn {
-  float: right;
+  margin-top: 10px;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 6px;
   cursor: pointer;
-}
-.valence {
-  display: flex;
-  gap: 5px;
-  flex-wrap: wrap;
-  margin-top: 8px;
-}
-
-.valence span {
-  padding: 4px 8px;
-  border-radius: 999px;
-  font-size: 12px;
-  font-weight: bold;
+  background: #ef4444;
   color: white;
 }
-
-/* 不同價數顏色 */
-.v-pos { background: #22c55e; }   /* 正價 */
-.v-neg { background: #ef4444; }   /* 負價 */
-.v-zero { background: #64748b; }  /* 0 */
-.v-multi { background: #a855f7; } /* 多變 */
