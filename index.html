@@ -1,19 +1,46 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-Hant">
 <head>
-<meta charset="UTF-8">
-<title>Periodic Table v10</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ultimate Periodic Table</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<h1>週期表 v10</h1>
+  <!-- 🔥 標題區 -->
+  <header>
+    <h1>🧪 Ultimate Periodic Table</h1>
+    <p>互動式元素週期表</p>
+  </header>
 
-<input id="search" placeholder="搜尋元素">
-<div id="table"></div>
+  <!-- 🔍 搜尋欄（之後 JS 會用） -->
+  <div class="controls">
+    <input type="text" id="search" placeholder="搜尋元素（例如: H, Oxygen...）">
+    <button onclick="resetTable()">重置</button>
+  </div>
 
-<script src="elements.js"></script>
-<script src="script.js"></script>
+  <!-- 🌐 週期表主容器 -->
+  <main>
+    <div id="periodic-table" class="table-container">
+      <!-- JS 會自動生成元素方塊 -->
+    </div>
+  </main>
+
+  <!-- 📊 資訊卡（點元素會顯示） -->
+  <aside id="info-panel">
+    <h2>元素資訊</h2>
+    <div id="info-content">
+      點擊任一元素查看詳細資料
+    </div>
+  </aside>
+
+  <!-- ⚙️ JS -->
+  <script src="elements.js"></script>
+  <script src="script.js"></script>
 
 </body>
 </html>
