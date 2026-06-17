@@ -136,3 +136,21 @@ const elements = [
   { number: 117, symbol: "Ts", name: "Tennessine", mass: 294, category: "halogen", period: 7, group: 17 },
   { number: 118, symbol: "Og", name: "Oganesson", mass: 294, category: "noble-gas", period: 7, group: 18 }
 ];
+function addValence(el) {
+
+  const map = {
+    "alkali-metal": [1],
+    "alkaline-earth-metal": [2],
+    "halogen": [-1],
+    "noble-gas": [0],
+    "lanthanide": [3],
+    "actinide": [3,4,5,6],
+    "post-transition-metal": [2,3],
+    "metalloid": [3,4],
+    "nonmetal": [-3,-2,-1,1,2,3],
+    "transition-metal": [2,3]
+  };
+
+  el.valenceRange = map[el.category] || ["未知"];
+  return el;
+}
