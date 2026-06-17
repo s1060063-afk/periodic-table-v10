@@ -3,6 +3,7 @@ const container = document.getElementById("periodic-table");
 /* 建立表 */
 function createTable() {
   elements.forEach(el => {
+  el = addValence(el);
     const div = document.createElement("div");
     div.className = "element";
 
