@@ -6,9 +6,9 @@ const elements = [
     category: "nonmetal",
     atomicMass: 1.008,
     valenceRange: [1],
-    isotopes: ["¹H", "²H (D)", "³H (T)"],
+    isotopes: ["¹H", "²H", "³H"],
     compounds: ["H₂O", "NH₃", "CH₄"],
-    properties: ["最輕元素", "可燃氣體", "宇宙最常見"]
+    properties: ["最輕元素", "可燃氣體", "宇宙最多"]
   },
   {
     number: 2,
@@ -19,7 +19,7 @@ const elements = [
     valenceRange: [0],
     isotopes: ["³He", "⁴He"],
     compounds: [],
-    properties: ["惰性氣體", "不反應", 用於氣球"]
+    properties: ["惰性氣體", "不反應", "氣球用氣體"]
   },
   {
     number: 3,
@@ -29,8 +29,8 @@ const elements = [
     atomicMass: 6.94,
     valenceRange: [1],
     isotopes: ["⁶Li", "⁷Li"],
-    compounds: ["LiOH", "Li₂CO₃"],
-    properties: ["最輕金屬", "電池核心材料"]
+    compounds: ["Li₂CO₃"],
+    properties: ["電池核心", "最輕金屬"]
   },
   {
     number: 6,
@@ -40,8 +40,8 @@ const elements = [
     atomicMass: 12.011,
     valenceRange: [2,4],
     isotopes: ["¹²C", "¹³C", "¹⁴C"],
-    compounds: ["CO₂", "CH₄", "C₆H₁₂O₆"],
-    properties: ["生命基礎", "有多種同素異形體"]
+    compounds: ["CO₂", "CH₄"],
+    properties: ["生命基礎", "有多種型態"]
   },
   {
     number: 8,
@@ -51,7 +51,7 @@ const elements = [
     atomicMass: 15.999,
     valenceRange: [-2],
     isotopes: ["¹⁶O", "¹⁷O", "¹⁸O"],
-    compounds: ["H₂O", "CO₂"],
-    properties: ["呼吸必需", "助燃氣體"]
+    compounds: ["H₂O"],
+    properties: ["呼吸必需", "助燃"]
   }
 ];
