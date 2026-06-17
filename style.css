@@ -1,59 +1,54 @@
 body {
-  margin: 0;
   font-family: Arial;
   background: #0f172a;
   color: white;
-}
-
-header {
   text-align: center;
-  padding: 15px;
-  background: #111827;
 }
 
-.controls {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
+h1 {
+  margin: 20px;
+}
+
+/* 週期表 */
+#periodic-table {
+  display: grid;
+  grid-template-columns: repeat(18, 1fr);
+  gap: 5px;
   padding: 10px;
 }
 
-#table {
-  display: grid;
-  grid-template-columns: repeat(18, 50px);
-  gap: 4px;
-  justify-content: center;
-  padding: 20px;
-}
-
+/* 元素格 */
 .element {
-  background: #1f2937;
+  background: #1e293b;
   border-radius: 6px;
-  padding: 4px;
-  text-align: center;
+  padding: 6px;
   cursor: pointer;
-  font-size: 10px;
+  transition: 0.2s;
+  font-size: 12px;
 }
 
 .element:hover {
-  background: #3b82f6;
   transform: scale(1.1);
+  background: #334155;
 }
 
-.number {
-  font-size: 8px;
-}
-
-.symbol {
-  font-size: 14px;
-  font-weight: bold;
-}
+/* 類別顏色 */
+.nonmetal { background: #16a34a; }
+.noble-gas { background: #2563eb; }
+.alkali-metal { background: #dc2626; }
+.alkaline-earth-metal { background: #ea580c; }
+.transition-metal { background: #9333ea; }
+.metalloid { background: #ca8a04; }
+.halogen { background: #0891b2; }
+.post-transition-metal { background: #64748b; }
+.lanthanide { background: #db2777; }
+.actinide { background: #be123c; }
 
 /* 彈窗 */
 #modal {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0,0,0,0.8);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -64,8 +59,14 @@ header {
 }
 
 .modal-box {
-  background: #111827;
+  background: white;
+  color: black;
   padding: 20px;
   border-radius: 10px;
   width: 300px;
+}
+
+.close-btn {
+  float: right;
+  cursor: pointer;
 }
