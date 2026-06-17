@@ -1,27 +1,38 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
-  <title>118元素週期表</title>
+  <title>Ultimate Periodic Table</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<h1>🧪 118 元素週期表</h1>
+  <h1>🧪 118 元素週期表</h1>
 
-<div id="periodic-table"></div>
-
-<!-- 彈窗 -->
-<div id="modal" class="hidden">
-  <div class="modal-box">
-    <button class="close-btn" onclick="closeModal()">✖</button>
-    <div id="modal-content"></div>
+  <!-- 🔍 搜尋區 -->
+  <div class="search-box">
+    <input id="searchInput" type="text" placeholder="搜尋元素（名稱 / 符號 / 原子序）">
+    <button onclick="searchElement(document.getElementById('searchInput').value)">
+      搜尋
+    </button>
   </div>
-</div>
 
-<script src="elements.js"></script>
-<script src="script.js"></script>
+  <!-- ⚛ 週期表容器 -->
+  <div id="periodic-table"></div>
+
+  <!-- 🧬 彈窗 -->
+  <div id="modal" class="hidden">
+    <div class="modal-content" id="modal-content"></div>
+
+    <button class="close-btn" onclick="closeModal()">
+      ✖ 關閉
+    </button>
+  </div>
+
+  <!-- 📦 載入資料與程式 -->
+  <script src="elements.js"></script>
+  <script src="script.js"></script>
 
 </body>
 </html>
